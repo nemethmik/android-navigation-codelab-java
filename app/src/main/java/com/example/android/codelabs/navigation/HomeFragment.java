@@ -25,6 +25,7 @@ public final class HomeFragment extends Fragment {
                .setExitAnim(R.anim.slide_out_left).setPopEnterAnim(R.anim.slide_in_left).setPopExitAnim(R.anim.slide_out_right)
                .build();
        binding.navigateDestinationButton.setOnClickListener(v -> Navigation.findNavController(v).navigate(R.id.flow_step_one_dest,null,navOptions));
+       binding.navigateActionButton.setOnClickListener(Navigation.createNavigateOnClickListener(R.id.next_action));
 //       binding.navigateDestinationButton.setOnClickListener(Navigation.createNavigateOnClickListener(R.id.flow_step_one_dest));
 //      return inflater.inflate(R.layout.home_fragment, container, false);
        return binding.getRoot();
