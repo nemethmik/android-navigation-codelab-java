@@ -19,9 +19,7 @@ public final class FlowStepFragment extends Fragment {
       this.setHasOptionsMenu(true);
       if (FlowStepFragmentArgs.fromBundle(getArguments()).getFlowStepNumber() == 2) {
          return FlowStepTwoFragmentBinding.inflate(inflater).getRoot();
-//         return inflater.inflate(R.layout.flow_step_two_fragment, container, false);
       } else {
-//         return inflater.inflate(R.layout.flow_step_one_fragment, container, false);
          return FlowStepOneFragmentBinding.inflate(inflater).getRoot();
       }
    }
