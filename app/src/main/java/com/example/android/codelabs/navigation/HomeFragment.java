@@ -7,6 +7,7 @@ import android.view.MenuInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import androidx.fragment.app.Fragment;
+import androidx.navigation.NavOptions;
 import androidx.navigation.Navigation;
 
 import com.example.android.codelabs.navigation.databinding.HomeFragmentBinding;
@@ -20,8 +21,11 @@ public final class HomeFragment extends Fragment {
       this.setHasOptionsMenu(true);
        HomeFragmentBinding binding = HomeFragmentBinding.inflate(inflater);
        binding.setLifecycleOwner(this);
-//       binding.navigateDestinationButton.setOnClickListener(v -> Navigation.findNavController(v).navigate(R.id.flow_step_one_dest));
-       binding.navigateDestinationButton.setOnClickListener(Navigation.createNavigateOnClickListener(R.id.flow_step_one_dest));
+       NavOptions navOptions = new NavOptions.Builder().setEnterAnim(R.anim.slide_in_right)
+               .setExitAnim(R.anim.slide_out_left).setPopEnterAnim(R.anim.slide_in_left).setPopExitAnim(R.anim.slide_out_right)
+               .build();
+       binding.navigateDestinationButton.setOnClickListener(v -> Navigation.findNavController(v).navigate(R.id.flow_step_one_dest,null,navOptions));
+//       binding.navigateDestinationButton.setOnClickListener(Navigation.createNavigateOnClickListener(R.id.flow_step_one_dest));
 //      return inflater.inflate(R.layout.home_fragment, container, false);
        return binding.getRoot();
    }
