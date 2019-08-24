@@ -70,7 +70,7 @@ public final class MainActivity extends AppCompatActivity {
       String dest;
       try {
          dest = MainActivity.this.getResources().getResourceName(destination.getId());
-      } catch (NotFoundException var7) {
+      } catch (NotFoundException e) {
          dest = Integer.toString(destination.getId());
       }
       Toast.makeText((Context)MainActivity.this, (CharSequence)("Navigated to " + dest), Toast.LENGTH_SHORT).show();
