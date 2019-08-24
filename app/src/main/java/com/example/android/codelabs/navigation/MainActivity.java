@@ -27,17 +27,17 @@ public final class MainActivity extends AppCompatActivity {
    private AppBarConfiguration appBarConfiguration;
    protected void onCreate(@Nullable Bundle savedInstanceState) {
       super.onCreate(savedInstanceState);
-      this.setContentView(R.layout.navigation_activity);
+      setContentView(R.layout.navigation_activity);
       Toolbar toolbar = (Toolbar)this.findViewById(R.id.toolbar);
-      this.setSupportActionBar(toolbar);
+      setSupportActionBar(toolbar);
       NavHostFragment host = (NavHostFragment)this.getSupportFragmentManager()
               .findFragmentById(R.id.my_nav_host_fragment);
       if (host != null) {
          NavController navController = host.getNavController();
-         this.appBarConfiguration = new AppBarConfiguration.Builder(navController.getGraph()).build();
-         this.setupActionBar(navController, this.appBarConfiguration);
-         this.setupNavigationMenu(navController);
-         this.setupBottomNavMenu(navController);
+         appBarConfiguration = new AppBarConfiguration.Builder(navController.getGraph()).build();
+         setupActionBar(navController, this.appBarConfiguration);
+         setupNavigationMenu(navController);
+         setupBottomNavMenu(navController);
          navController.addOnDestinationChangedListener(this::onDestinationChanged);
       }
    }
@@ -55,7 +55,7 @@ public final class MainActivity extends AppCompatActivity {
       boolean retValue = super.onCreateOptionsMenu(menu);
       NavigationView navigationView = (NavigationView)this.findViewById(R.id.nav_view);
       if (navigationView == null) {
-         this.getMenuInflater().inflate(R.menu.overflow_menu, menu);
+         getMenuInflater().inflate(R.menu.overflow_menu, menu);
          return true;
       } else {
          return retValue;
