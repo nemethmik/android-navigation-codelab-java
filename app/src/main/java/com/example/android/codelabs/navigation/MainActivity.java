@@ -8,6 +8,9 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Toast;
+
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.drawerlayout.widget.DrawerLayout;
@@ -20,8 +23,6 @@ import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.AppBarConfiguration.Builder;
 import androidx.navigation.ui.AppBarConfiguration.OnNavigateUpListener;
 import com.google.android.material.navigation.NavigationView;
-import org.jetbrains.annotations.NotNull;
-import org.jetbrains.annotations.Nullable;
 
 public final class MainActivity extends AppCompatActivity {
    private AppBarConfiguration appBarConfiguration;
@@ -51,7 +52,7 @@ public final class MainActivity extends AppCompatActivity {
    private final void setupActionBar(NavController navController, AppBarConfiguration appBarConfig) {
    }
 
-   public boolean onCreateOptionsMenu(@NotNull Menu menu) {
+   public boolean onCreateOptionsMenu(@NonNull Menu menu) {
       boolean retValue = super.onCreateOptionsMenu(menu);
       NavigationView navigationView = (NavigationView)this.findViewById(R.id.nav_view);
       if (navigationView == null) {
@@ -62,11 +63,11 @@ public final class MainActivity extends AppCompatActivity {
       }
    }
 
-   public boolean onOptionsItemSelected(@NotNull MenuItem item) {
+   public boolean onOptionsItemSelected(@NonNull MenuItem item) {
       return super.onOptionsItemSelected(item);
    }
-   public final void onDestinationChanged(@NotNull NavController navController
-           , @NotNull NavDestination destination, @Nullable Bundle bundle) {
+   public final void onDestinationChanged(@NonNull NavController navController
+           , @NonNull NavDestination destination, @Nullable Bundle bundle) {
       String dest;
       try {
          dest = MainActivity.this.getResources().getResourceName(destination.getId());

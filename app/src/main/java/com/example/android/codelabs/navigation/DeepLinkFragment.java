@@ -14,20 +14,20 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.core.app.NotificationCompat;
 import androidx.core.app.NotificationCompat.Builder;
 import androidx.fragment.app.Fragment;
-import androidx.navigation.fragment.FragmentKt;
-import org.jetbrains.annotations.NotNull;
-import org.jetbrains.annotations.Nullable;
+import androidx.navigation.Navigation;
 
 public final class DeepLinkFragment extends Fragment {
    @Nullable
-   public View onCreateView(@NotNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+   public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
       return inflater.inflate(R.layout.deeplink_fragment, container, false);
    }
 
-   public void onViewCreated(@NotNull final View view, @Nullable Bundle savedInstanceState) {
+   public void onViewCreated(@NonNull final View view, @Nullable Bundle savedInstanceState) {
       super.onViewCreated(view, savedInstanceState);
       TextView textView = (TextView)view.findViewById(R.id.text);
       Bundle arguments = this.getArguments();
@@ -39,7 +39,7 @@ public final class DeepLinkFragment extends Fragment {
       EditText editArgs = (EditText)getView().findViewById(R.id.args_edit_text);
       Bundle args = new Bundle();
       args.putString("myarg", editArgs.getText().toString());
-      PendingIntent deeplink = FragmentKt.findNavController(DeepLinkFragment.this).createDeepLink().setDestination(R.id.deeplink_dest).setArguments(args).createPendingIntent();
+      PendingIntent deeplink = Navigation.findNavController(it).createDeepLink().setDestination(R.id.deeplink_dest).setArguments(args).createPendingIntent();
       Context context = DeepLinkFragment.this.getContext();
       if (context != null) {
          NotificationManager notificationManager = (NotificationManager)context.getSystemService(Context.NOTIFICATION_SERVICE);

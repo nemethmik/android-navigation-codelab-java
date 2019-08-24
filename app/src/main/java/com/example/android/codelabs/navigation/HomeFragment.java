@@ -6,18 +6,18 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.View;
 import android.view.ViewGroup;
+
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.navigation.NavOptions;
 import androidx.navigation.Navigation;
 
 import com.example.android.codelabs.navigation.databinding.HomeFragmentBinding;
 
-import org.jetbrains.annotations.NotNull;
-import org.jetbrains.annotations.Nullable;
-
 public final class HomeFragment extends Fragment {
    @Nullable
-   public View onCreateView(@NotNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+   public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
       this.setHasOptionsMenu(true);
        HomeFragmentBinding binding = HomeFragmentBinding.inflate(inflater);
        binding.setLifecycleOwner(this);
@@ -31,11 +31,11 @@ public final class HomeFragment extends Fragment {
        return binding.getRoot();
    }
 
-   public void onViewCreated(@NotNull View view, @Nullable Bundle savedInstanceState) {
+   public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
       super.onViewCreated(view, savedInstanceState);
    }
 
-   public void onCreateOptionsMenu(@NotNull Menu menu, @NotNull MenuInflater inflater) {
+   public void onCreateOptionsMenu(@NonNull Menu menu, @NonNull MenuInflater inflater) {
       inflater.inflate(R.menu.main_menu, menu);
    }
 }
