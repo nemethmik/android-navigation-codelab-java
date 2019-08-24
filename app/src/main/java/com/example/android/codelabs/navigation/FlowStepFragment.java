@@ -10,15 +10,20 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.navigation.Navigation;
 
+import com.example.android.codelabs.navigation.databinding.FlowStepOneFragmentBinding;
+import com.example.android.codelabs.navigation.databinding.FlowStepTwoFragmentBinding;
+
 public final class FlowStepFragment extends Fragment {
    @Nullable
    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
       this.setHasOptionsMenu(true);
-      Bundle arguments = this.getArguments();
-      Integer flowStepNumber = arguments != null ? arguments.getInt("flowStepNumber") : null;
-      if (flowStepNumber != null && flowStepNumber == 2) {
-         return inflater.inflate(R.layout.flow_step_two_fragment, container, false);
-      } else return inflater.inflate(R.layout.flow_step_one_fragment, container, false);
+      if (FlowStepFragmentArgs.fromBundle(getArguments()).getFlowStepNumber() == 2) {
+         return FlowStepTwoFragmentBinding.inflate(inflater).getRoot();
+//         return inflater.inflate(R.layout.flow_step_two_fragment, container, false);
+      } else {
+//         return inflater.inflate(R.layout.flow_step_one_fragment, container, false);
+         return FlowStepOneFragmentBinding.inflate(inflater).getRoot();
+      }
    }
 
    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
