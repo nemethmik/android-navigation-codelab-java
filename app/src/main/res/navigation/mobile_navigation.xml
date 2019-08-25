@@ -87,10 +87,9 @@
             android:name="myarg"
             android:defaultValue="Android!"/>
         <!-- TODO STEP 12.1 - Add a deep link to www.example.com/{myarg}/ -->
-
-        <!--<deepLink app:uri="www.example.com/{myarg}" />-->
-
-        <!-- TODO END STEP 12.1 -->
+        <deepLink app:uri="tiva11.com/{myarg}" />
+        <deepLink app:uri="http://hana93srv/b1v/v1/{myarg}" />
+        <!-- This can be done in the designer, too -->
     </fragment>
     <fragment
         android:id="@+id/settings_dest"
